@@ -10,7 +10,8 @@ const { Server } = require("socket.io");
 const rfidServer = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: "*"
+      origin: "*",
+      methods: ["GET", "POST"]
     },
   });
   client.on("connect", function () {
