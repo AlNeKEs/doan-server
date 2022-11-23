@@ -2,9 +2,9 @@
     "version": 2,
    "name": "doan-rfid",
    "builds": [
-      { "src": "./index.js" }
+      { "src": "./index.js", "use": "@vercel/node"}
    ],
    "routes": [
-      { "src": "/(.*)", "dest": "/" }
+      { "src": "/(.*)", "dest": "/index.js" }
    ]
 }
