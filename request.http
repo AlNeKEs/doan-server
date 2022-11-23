@@ -1,0 +1,100 @@
+POST https://doan-rfid.herokuapp.com/api/auth/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzMzkyZWI3NTgxMDA0ZTRkM2JjNGIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Njc0NDg1Nzd9.pvx4lFLMrxyNaXeinOMcarbJTBVkDh9ttpLge9e3UhI
+
+
+{
+  "username": "linhleNewtest",
+  "password":"17037771",
+  "role": "user"
+}
+
+###
+
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "linhle",
+  "password": "17037771"
+}
+
+###
+
+POST https://doan-rfid.herokuapp.com/api/device/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzMmEzMjc3MjkwNzA1MGNiYTViY2UiLCJpYXQiOjE2Njc0NDYzOTh9.ZMOhrRIcLugQODBagWy-Pf6V5MH6GCXEawTR9efm2mI
+
+{
+  "rfidId":" BD 6E",
+      "deviceName": "new Device",
+      "type": "dien tu",
+      "deviceModel": "Asd5555",
+      "manufactor": "NSX QWER",
+      "mfg": "20/10/2010",
+      "exp": "21/10/2025"
+}
+
+###
+
+POST http://localhost:3001/api/device/getDevice
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzMzkyZWI3NTgxMDA0ZTRkM2JjNGIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Njc2Mjg5ODZ9.4yCk5VA4U9qVZT4Ol1SortquV7EiPDYph4Xait-dU5o
+
+{
+ "searchValue": ""
+ }
+###
+
+PUT https://doan-rfid.herokuapp.com/api/device/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzM2IyMjY0YTE0MjBiNTA2MTFkYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NzQ1MDM3OH0.l0CUU8VPG65EmU3I4v-JJ-m6DkSj7Wk5y1zvG07Wv_4
+
+{
+      "id": "63662c75caf38400166f2556",
+      "rfidId": "89 B   D 6E",
+      "deviceName": "testtfffttttttttupdate",
+      "type": "gia dung",
+      "deviceModel": "Asd5555",
+      "manufactor": "NSX QWER",
+      "mfg": "20/10/2010",
+      "exp": "21/10/2025",
+      "createAt": "2022-11-03T04:54:50.774Z",
+      "dateModified": "2022-11-03T04:54:50.774Z",
+      "__v": 0
+    }
+
+###
+
+DELETE https://doan-rfid.herokuapp.com/api/device/delete/63661ae0caf38400166f23a9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzM2IyMjY0YTE0MjBiNTA2MTFkYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NzQ1MDM3OH0.l0CUU8VPG65EmU3I4v-JJ-m6DkSj7Wk5y1zvG07Wv_4
+
+###
+POST http://localhost:3000/api/device/search
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzM2IyMjY0YTE0MjBiNTA2MTFkYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NzQ1MDM3OH0.l0CUU8VPG65EmU3I4v-JJ-m6DkSj7Wk5y1zvG07Wv_4
+
+{
+  "searchValue": "gia dung"
+}
+
+###
+GET https://doan-rfid.herokuapp.com/api/rfid/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzM2IyMjY0YTE0MjBiNTA2MTFkYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NzQ1MDM3OH0.l0CUU8VPG65EmU3I4v-JJ-m6DkSj7Wk5y1zvG07Wv_4
+
+###
+
+GET https://doan-rfid.herokuapp.com/api/auth/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0ZTA3MWI3NTBkZDAwMTZlNTM2OTUiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NzU1NTQ1N30.jfcqMrd5a7GzvGRC-PVRy4OHC5cMq8y0r8WhT1V6dx0
+
+###
+GET https://doan-rfid.herokuapp.com/api/auth
+Content-Type: application/json
+Authorization: Bearer 
+
+###
+GET https://doan-rfid.herokuapp.com/api/device/getDetail/63662c75caf38400166f2556
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzY0ZTA3MWI3NTBkZDAwMTZlNTM2OTUiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NzU1NTQ1N30.jfcqMrd5a7GzvGRC-PVRy4OHC5cMq8y0r8WhT1V6dx0

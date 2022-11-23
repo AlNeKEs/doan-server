@@ -1,0 +1,10 @@
+{
+    "version": 2,
+   "name": "doan-rfid",
+   "builds": [
+      { "src": "./index.js" }
+   ],
+   "routes": [
+      { "src": "/(.*)", "dest": "/" }
+   ]
+}
