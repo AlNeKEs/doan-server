@@ -14,7 +14,6 @@ router.post("/add", verifyToken, async (req, res) => {
       .json({ success: false, message: "missing rfidID and/or deviceName" });
   try {
     const searchDevice = await Device.findOne({ rfidId: rfidId });
-    console.log(searchDevice);
     if (searchDevice)
       return res
         .status(409)
@@ -45,7 +44,6 @@ router.post("/add", verifyToken, async (req, res) => {
 //@access Private
 router.post("/getDevice", verifyToken, async (req, res) => {
   const { searchValue } = req.body;
-  console.log(searchValue);
   try {
     if (!searchValue) {
       const devices = await Device.find({});
@@ -129,7 +127,6 @@ router.delete("/delete/:id", verifyToken, async (req, res) => {
   try {
     // const deleteId = {_id: };
     const deleteDevice = await Device.findOneAndDelete({ _id: req.params.id });
-    console.log(deleteDevice);
     res.json({ success: true, message: "delete successful" });
   } catch (err) {
     console.log(err);

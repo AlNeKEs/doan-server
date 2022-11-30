@@ -1,14 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-const http = require("http");
 const app = express();
-const server = http.createServer(app);
 const mongoose = require("mongoose");
 const cors = require("cors");
 
 const authRouter = require("./routes/auth");
 const deviceRouter = require("./routes/device");
-const rfidServer = require("./routes/rfid");
+const readDevice = require ("./routes/rfid");
 
 const connectDB = async () => {
   try {
@@ -21,7 +19,6 @@ const connectDB = async () => {
         useFindAndModify: false,
       }
     );
-
     console.log("MongoDB connected");
   } catch (error) {
     console.log(error.message);
@@ -38,8 +35,8 @@ app.use(cors({
 
 app.use("/api/auth", authRouter);
 app.use("/api/device", deviceRouter);
-rfidServer(server);
+app.use("/api/rfid", readDevice);
 
 const PORT = process.env.PORT || 3001;
 
-server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
