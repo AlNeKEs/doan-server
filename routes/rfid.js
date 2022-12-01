@@ -13,6 +13,7 @@ client.on("error", function (error) {
 });
 
 router.get("/add", verifyToken, (req, res) => {
+  client.publish("doan/rfid/subcribetopic", JSON.stringify({ message: "add" }));
   client.subscribe("doan/rfid/publishtopic/add", { qos: 0 }, (e) => {
     if (e) {
       console.log(e);
@@ -32,6 +33,10 @@ router.get("/add", verifyToken, (req, res) => {
 });
 
 router.get("/scan", verifyToken, (req, res) => {
+  client.publish(
+    "doan/rfid/subcribetopic",
+    JSON.stringify({ message: "scan" })
+  );
   client.subscribe("doan/rfid/publishtopic/scan", { qos: 0 }, (e) => {
     if (e) {
       console.log(e);
